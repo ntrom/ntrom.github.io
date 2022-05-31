@@ -3,41 +3,239 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Nick's Portfolio</title>
+    <title>Nick's Developer Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue@2" type="text/javascript"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css">
-    <script src="routing.js" type="text/javascript"></script>
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#home">
-            <img src="content/nick-avatar.png" style="max-width: 32px"/> ntrom
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div id="app-body">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="#about" v-on:click="currentPage = 'About'">
+                <img src="content/nick-avatar.png" style="max-width: 32px" /> ntrom
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarItems">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarItems">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" v-on:click="currentPage = 'About'">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects" v-on:click="currentPage = 'Projects'">Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container body-content">
+
+            <!-- About -->
+            <div v-if="currentPage === 'About'">
+                <div>
+                    <h2>Nick Trombetta</h2>
+                    <p>
+                        Hello! My name is Nick Trombetta. I've been programming for the past eighteen years, and
+                        have devoted all my academic and professional efforts toward software engineering.
+                        Check out some of my <a href="#projects" v-on:click="currentPage = 'Projects'">projects</a> - thanks for visiting!
+                    </p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="octicon octicon-mortar-board"></span>
+                                Bachelors of Science, Computer Science
+                            </h5>
+                            <p class="card-text">
+                                Stony Brook University, class of 2013.
+                                <div>
+                                    <span class="badge">C</span>
+                                    <span class="badge">C++</span>
+                                    <span class="badge">C#</span>
+                                    <span class="badge">HTML</span>
+                                    <span class="badge">Javascript</span>
+                                    <span class="badge">CSS</span>
+                                    <span class="badge">Java</span>
+                                    <span class="badge">Python</span>
+                                    <span class="badge">OpenGL</span>
+                                    <span class="badge">Direct3D</span>
+                                    <span class="badge">GLSL</span>
+                                    <span class="badge">HLSL</span>
+                                    <span class="badge">Game Programming</span>
+                                    <span class="badge">Compiler Design</span>
+                                    <span class="badge">Operating Systems</span>
+                                    <span class="badge">Machine Learning</span>
+                                    <span class="badge">Analysis of Algorithms</span>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="octicon octicon-code"></span>
+                                Professional Software Engineer
+                            </h5>
+                            <p class="card-text">
+                                I've been professionally developing full-stack web applications over the past nine years.
+                                <div>
+                                    <span class="badge">SQL Server</span>
+                                    <span class="badge">C#</span>
+                                    <span class="badge">ASP.NET MVC</span>
+                                    <span class="badge">HTML</span>
+                                    <span class="badge">CSS</span>
+                                    <span class="badge">Javascript</span>
+                                    <span class="badge">Vue.js</span>
+                                    <span class="badge">Angular JS</span>
+                                    <span class="badge">MongoDB</span>
+                                    <span class="badge">Azure</span>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                    <br />
+
+                </div>
+
+            </div>
+
+            <!-- Projects -->
+            <div v-if="currentPage === 'Projects'">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    In-Development Application
+                                </h5>
+                                <p class="card-text">
+                                    I'm developing an exciting web and mobile application (2021 - current).
+                                    <div>Recent accomplishments:</div>
+                                    <ul>
+                                        <li>Taking my existing web application front-end and embedding it into an Android app, beginning to make it work offline and serverless</li>
+                                        <li>Extending my mini data access framework by adding an implementation for SQLite</li>
+                                        <li>Generalizing the existing back-end which uses SQL Server so that the same queries can be used for SQLite</li>
+                                    </ul>
+                                    <div>
+                                        <span class="badge">SQL Server</span>
+                                        <span class="badge">SQLite</span>
+                                        <span class="badge">C#</span>
+                                        <span class="badge">ASP.NET MVC</span>
+                                        <span class="badge">HTML</span>
+                                        <span class="badge">CSS</span>
+                                        <span class="badge">Vue.js</span>
+                                        <span class="badge">Android</span>
+                                        <span class="badge">Java</span>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Professional Web Applications
+                                </h5>
+                                <p class="card-text">
+                                    Starting in 2013, I began devoting all of my efforts to my full-time software engineering roles. I've enjoyed building new web applications
+                                    with modern technology, and take personal pride in the products I develop.
+                                    <div>
+                                        <span class="badge">SQL Server</span>
+                                        <span class="badge">C#</span>
+                                        <span class="badge">ASP.NET MVC</span>
+                                        <span class="badge">HTML</span>
+                                        <span class="badge">CSS</span>
+                                        <span class="badge">Javascript</span>
+                                        <span class="badge">Vue.js</span>
+                                        <span class="badge">Angular JS</span>
+                                        <span class="badge">MongoDB</span>
+                                        <span class="badge">Azure</span>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    ntrom Game Engine
+                                </h5>
+                                <p class="card-text">
+                                    I casually develop a game engine for learning purposes (2019 - current).
+                                    <div>
+                                        <small>Made with: </small>
+                                        <span class="badge">C++</span>
+                                        <span class="badge">OpenGL</span>
+                                        <span class="badge">Bullet3D</span>
+                                    </div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KHHWiTp5hR4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Lotus Field
+                                </h5>
+                                <p class="card-text">
+                                    Academic project for Software Engineering class (2012).
+                                    <div>
+                                        <small>Made with: </small>
+                                        <span class="badge">C#</span>
+                                        <span class="badge">XNA (ported to MonoGame in 2021)</span>
+                                    </div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/z6mTNkPbid8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Volume Revolution
+                                </h5>
+                                <p class="card-text">
+                                    Academic project for Computer Game Programming class (2011).
+                                    <div>
+                                        <small>Made with: </small>
+                                        <span class="badge">C++</span>
+                                        <span class="badge">DirectX</span>
+                                    </div>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/naQ0tl3wErc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        <div id="routing-viewport"></div>
     </div>
 
     <script type="text/javascript">
-        Routing.initializeHashNavigationHandling();
+        new Vue({
+            el: "#app-body",
+            data: function () {
+                return {
+                    currentPage: "About",
+                }
+            },
+            methods: {
+            }
+        })
+
     </script>
 </body>
 </html>
