@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css">
 </head>
 <body>
-    <div>
+    <div id="app">
         <div class="navbar navbar-fixed-top navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -20,20 +20,46 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html" class="navbar-brand">
-                        ntrom
+                    <a href="/" class="navbar-brand">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <img src="content/nick-avatar.png" height="24" />
+                            </div>
+                            <div class="col-sm-2">
+                                ntrom
+                            </div>
+                        </div>
+                        
+                        
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <!--<li><a></a></li>-->
+                        <li>
+                            <a href="#articles" v-on:click="setCurrentPage('articles')">
+                                <i class="octicon octicon-book"></i>
+                                Articles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#calendar" v-on:click="setCurrentPage('calendar')">
+                                <i class="octicon octicon-calendar"></i>
+                                Calendar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#recruiters" v-on:click="setCurrentPage('recruiters')">
+                                <i class="octicon octicon-person"></i>
+                                Recruiters
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="container body-content">
-            <div>
-                <br /><br />
+            <br /><br />
+            <div v-if="currentPage === 'home'">
                 <h3>Software Developer, Programming Enthusiast, B.S. in Computer Science</h3>
 
                 <h4>Growing in Knowledge and Technology with:</h4>
@@ -73,7 +99,50 @@
 
                 </div>
             </div>
+
+            <!-- Articles -->
+            <div v-if="currentPage === 'articles'">
+                <h3>Articles</h3>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="list-group">
+                            <a href="#articles/bug-knowledge-base" v-on:click="setCurrentArticle('bug-knowledge-base')" class="list-group-item">Bug Knowledge Base</a>
+                            <a href="#articles/tools-of-the-trade" v-on:click="setCurrentArticle('tools-of-the-trade')" class="list-group-item">Tools of the Trade</a>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div v-if="currentArticle === ''">
+                            Articles can be selected on the left
+                        </div>
+                        <div v-if="currentArticle === 'bug-knowledge-base'">
+                            <bug-knowledge-base></bug-knowledge-base>
+                        </div>
+                        <div v-if="currentArticle === 'tools-of-the-trade'">
+                            <tools-of-the-trade></tools-of-the-trade>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Recruiters -->
+            <div v-if="currentPage === 'recruiters'">
+                <recruiters></recruiters>
+            </div>
+
+            <!-- Calendar -->
+            <div v-bind:class="currentPage === 'calendar' ? '' : 'hidden'">
+                <h3>Calendar</h3>
+                <p>Here you can see my availability, and schedule a discussion for professional opportunities. More information can be found on the <a href="#recruiters">Recruiters</a> page.</p>
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/ntrom" style="min-width:320px;height:630px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+                <!-- Calendly inline widget end -->
+            </div>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
