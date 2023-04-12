@@ -17,6 +17,8 @@ registerPageComponent("recruiters", "recruiters.html");
 registerPageComponent("calendar", "calendar.html");
 registerPageComponent("bug-knowledge-base", "articles/bug-knowledge-base.html");
 registerPageComponent("tools-of-the-trade", "articles/tools-of-the-trade.html");
+registerPageComponent("lotus-field", "projects/lotus-field/lotus-field.html");
+registerPageComponent("stratego", "projects/stratego/stratego.html");
 
 new Vue({
     el: "#app",
@@ -34,7 +36,7 @@ new Vue({
             this.currentArticle = article;
         },
         setCurrentPageByHash: function (hash) {
-            if (hash === '#') {
+            if (!hash || hash === '#') {
                 this.setCurrentPage("home");
             }
             else if (hash === '#recruiters') {
@@ -45,6 +47,12 @@ new Vue({
             }
             else if (hash === '#calendar') {
                 this.setCurrentPage("calendar");
+            }
+            else if (hash === '#projects/lotus-field') {
+                this.setCurrentPage("lotus-field");
+            }
+            else if (hash === '#projects/stratego') {
+                this.setCurrentPage("stratego");
             }
             else if (hash === '#articles/bug-knowledge-base') {
                 this.setCurrentPage("articles");

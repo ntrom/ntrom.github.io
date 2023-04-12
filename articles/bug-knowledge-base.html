@@ -4,5 +4,40 @@
 
     <p>This is a knowledge base of my experience with finding bugs in software.</p>
 
-    <h6>Coming Soon!</h6>
+    <h3>Common Types of Vulnerabilities</h3>
+    <p>Here are some common types of vulnerabilities, which I especially focus on finding in existing systems, and strive to avoid creating in code that I author.</p>
+
+    <h4>Path Traversal Vulnerabilities</h4>
+    <p>If a web application has functionality that reads files from disk, where the file path is built from variables that can contain user input, it is possible that a Path Traversal vulnerability could exist, allowing one to traverse the file system and obtain arbitrary files - if not handled carefully.</p>
+
+    <h4>Insecure Direct Object References (IDORs)</h4>
+    <p>
+        If a web application has an endpoint that accepts an arbitrary identifier, and does not correctly protect access to the corresponding record(s), it could be a case of an IDOR.
+
+    </p>
+
+    <h4>Race Conditions</h4>
+    <p>
+        Since web applications are concurrent systems, often with high complexity, it can be difficult to always correctly manage concurrency.
+        Race conditions can exist that allow exposure of sensitive data, or performing a write that would otherwise not be allowed under normal circumstances.
+    </p>
+
+    <h4>SQL injections</h4>
+    <p>
+        Many web applications use SQL databases as the underlying technology for persisting structured records.
+        If the application code contains any instances where, the SQL text is concatenated with variables that can contain user input - it is possible that the user can inject arbitrary SQL syntax in a way unintended by the developers, potentially allowing for exfiltration of more of the database than intended (or all of it).
+    </p>
+
+
+    <h4>Cross-Site Scripting (XSS)</h4>
+    <p>
+        XSS vulnerabilities come from web applications that do not sanitize user input for front-end scripts, which if exploited, would allow the user to either view (reflected XSS) the results directly, or (stored XSS) cause the system to persist javascript to a record that gets rendered at a later time for potentially another user, allowing the XSS author to potentially execute arbitrary javascript on behalf of other users. This in itself has an array of implications.
+    </p>
+
+    <h4>Same-Site and Cross-Site Request Forgery (SSRF and CSRF)</h4>
+    <p>
+        SSRF and CSRF vulnerabilities come from web application endpoints that do not ensure the caller has a means of secondarily verifying who it is, among from a token in a cookie, allowing for potential cookie stealing and account takeover if not handled correctly.
+    </p>
+
+    <h6>More Coming Soon!</h6>
 </div>
